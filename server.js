@@ -17,6 +17,12 @@ app.get('/', function (req, res) {
 app.get('/surfspots', function (req, res) {
     const surfSpots = surfSpotDB.getAll();
     res.render('surf-spots', { surfSpots })
+    console.log(req.params)
+})
+
+app.get('/surfspots/:id', function (req, res) {
+    res.render('show', { surfSpot: surfSpotDB.getOne(req.params.id) });
+    console.log(surfSpotDB.getOne(req.params.id))
 })
 
 
